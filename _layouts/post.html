@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "pt-br" }}">
+
+  {%- include head.html -%}
+
+  <body>
+    <div class="indicador__wrapper" aria-label="Explicação do indicador">
+      <header class="indicador__header">
+        <h1 class="indicador__title">{{ page._indicador | escape }}</h1>
+      </header>
+      <p> {{ page._objeto-mensuracao }} </p>
+      
+      <table class="indicador__table">
+        <thead>
+          <tr>
+            <th colspan="2">Informações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sigla</td>
+            <td>{{ page._sigla }}</td>
+          </tr>
+          <tr>
+            <td>Unidade de medida</td>
+            <td>{{ page._unidade-medida }}</td>
+          </tr>
+          <tr>
+            <td>Tema estratégico</td>
+            <td>{{ page._tema-estrategico }}</td>
+          </tr>
+          <tr>
+            <td>Nível</td>
+            <td>{{ page._nivel }}</td>
+          </tr>
+          <tr>
+            <td>Dimensão</td>
+            <td>{{ page._dimensao }}</td>
+          </tr>
+          <tr>
+            <td>Fonte</td>
+            <td>{{ page._fonte }}</td>
+          </tr>
+          <tr>
+            <td>Periodicidade</td>
+            <td>{{ page._periodicidade }}</td>
+          </tr>
+          <tr>
+            <td>Responsável pela coleta</td>
+            <td>{{ page._responsavel-coleta }}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      <br />
+      
+      <h3>Fórmula</h3>
+      <p>{{ page._formula }}</p>
+      
+      {%- if page._em-que -%}
+        <p><b>Em que:</b></p>
+        <p> {{ page._em-que }} </p>
+      {%- endif -%}
+      
+      {%- if page._interpretacao -%}
+        <p><b>Interpretação:</b></p>
+        <p> {{ page._interpretacao }} </p>
+      {%- endif -%}
+      
+      {%- if page._observacoes -%}
+        <p><b>Observações:</b></p>
+        <p> {{ page._observacoes }} </p>
+      {%- endif -%}
+
+      {%- if page._interpretacao_sti -%}
+      <p><b>Interpretação do STI:</b></p>
+      <p> {{ page._interpretacao_sti }} </p>
+    {%- endif -%}
+      
+      
+      {{ content }}
+      
+    </div>
+
+  </body>
+</html>
+
+
+  
+  

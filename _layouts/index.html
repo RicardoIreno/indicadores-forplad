@@ -1,0 +1,41 @@
+---
+layout: default
+---
+{{ content }}
+
+
+<div class="indexWrapper">
+  <h2>Entenda os indicadores</h2>
+  <p>Aqui você pode conferir detalhes sobre os indicadores, como fórmula, unidade de medida, interpretação e observações.</p>
+  
+  {% for category in site.categories  %}
+
+  <div class="category__group">
+    
+    <h3> {{ category[0] }}</h3>
+    
+    <ul class="category__posts">
+      {% assign pages_list = category[1] %}
+      
+      {% for post in pages_list reversed  %}
+      
+      <li class="category__post">
+        
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title | escape }} - {{ post._indicador | escape }}
+        </a>      
+      </li>
+      
+      {% endfor %}
+      
+      {% assign pages_list = nil %}
+      
+      {% assign group = nil %}
+      
+    </ul>
+    
+    {% endfor %}
+  </div> 
+    
+</div>
+  

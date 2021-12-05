@@ -1,0 +1,11 @@
+
+title: Indicadores Forplad
+description: O conteúdo do manual de indicadores da Forplad em formato markdown. 
+lang: PT-BR
+github_username:  ricardoireno
+
+permalink: /help-indicadores/:title:output_ext
+
+plugins:
+  - jekyll-spaceship
+

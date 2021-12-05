@@ -1,0 +1,47 @@
+<header class="siteHeader">
+
+  <div class="siteHeader__wrapper">
+
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+
+    <div class="siteHeader__container">
+      
+    <div class="siteHeader__logos">
+      <img class="siteHeader__logo" src="/assets/img/logos/unifesp-branco.svg" alt="Unifesp">
+    </div>
+    
+      <a class="siteHeader__title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+
+    </div>
+    <div class="siteHeader__nav">
+
+    {%- if page_paths -%}
+
+      <nav class="siteHeader__nav">
+
+        {%- for path in page_paths -%}
+          
+          {%- assign my_page = site.pages | where: "path", path | first -%}
+         
+          {%- if my_page.title -%}
+
+            <a 
+              class="siteHeader__link mcolor" 
+              href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}
+            </a>
+
+          {%- endif -%}
+
+        {%- endfor -%}
+
+      </nav>
+      
+    {%- endif -%}
+
+    </div> <!-- div siteHeader__nav -->
+
+  </div> <!-- div container -->
+
+</header>
+
